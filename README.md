@@ -102,8 +102,18 @@ def minimax(game)
     end
 end
 
-<H3>Program:</H3>
+<hr>
+<h2>Sample Input and Output</h2>
 
+![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/6b668685-8bcc-43c5-b5c2-ddd43f3da84a)
+![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/8ca1b08a-8312-4ef5-89df-e69b7b2c3fa2)
+![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/dc06427a-d4ce-43a1-95bd-9acfaefac323)
+![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/a8a27e2a-6fd4-46a2-afb5-6d27b8556702)
+![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/a2acb6a1-ed8e-42e5-8968-fe805e4b0255)
+<hr>
+
+
+## Program:
 ```
 import time
 
@@ -115,8 +125,7 @@ class Game:
         self.current_state = [['.','.','.'],
                               ['.','.','.'],
                               ['.','.','.']]
-        self.player_turn = 'X'  # Player X always plays first
-
+        self.player_turn = 'X' # Player X always plays first
     def draw_board(self):
         for i in range(3):
             for j in range(3):
@@ -131,7 +140,6 @@ class Game:
             return False
         else:
             return True
-
     def is_end(self):
         # Vertical win
         for i in range(3):
@@ -146,8 +154,7 @@ class Game:
                 return 'X'
             elif (self.current_state[i] == ['O', 'O', 'O']):
                 return 'O'
-
-        # Main diagonal win
+       # Main diagonal win
         if (self.current_state[0][0] != '.' and
             self.current_state[0][0] == self.current_state[1][1] and
             self.current_state[0][0] == self.current_state[2][2]):
@@ -173,14 +180,13 @@ class Game:
         py = None
 
         result = self.is_end()
-        if result == 'X':
+         if result == 'X':
             return (-1, 0, 0)
-        elif result == 'O':
+         elif result == 'O':
             return (1, 0, 0)
-        elif result == '.':
+         elif result == '.':
             return (0, 0, 0)
-
-        for i in range(3):
+          for i in range(3):
             for j in range(3):
                 if self.current_state[i][j] == '.':
                     self.current_state[i][j] = 'O'  # Simulate AI's move
@@ -192,8 +198,7 @@ class Game:
                     self.current_state[i][j] = '.'  # Undo the move
 
         return (maxv, px, py)
-
-    def min(self):
+     def min(self):
         minv = 2  # Initial worse case
         qx = None
         qy = None
@@ -219,7 +224,7 @@ class Game:
 
         return (minv, qx, qy)
 
-    def play(self):
+      def play(self):
         while True:
             self.draw_board()
             self.result = self.is_end()
@@ -252,12 +257,11 @@ class Game:
                         break
                     else:
                         print('The move is not valid! Try again.')
-
-            else:
+    
+             else:
                 (m, px, py) = self.max()
                 self.current_state[px][py] = 'O'
                 self.player_turn = 'X'
-
 def main():
     g = Game()
     g.play()
@@ -266,15 +270,12 @@ if __name__ == "__main__":
     main()
 
 ```
-<hr>
-<h2>Sample Input and Output</h2>
+## Output:
+<img width="472" height="674" alt="image" src="https://github.com/user-attachments/assets/14260607-27a2-4d7c-bbf8-50f8d307ea76" />
 
-![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/6b668685-8bcc-43c5-b5c2-ddd43f3da84a)
-![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/8ca1b08a-8312-4ef5-89df-e69b7b2c3fa2)
-![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/dc06427a-d4ce-43a1-95bd-9acfaefac323)
-![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/a8a27e2a-6fd4-46a2-afb5-6d27b8556702)
-![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/a2acb6a1-ed8e-42e5-8968-fe805e4b0255)
 
-<hr>
 <h2>Result:</h2>
 <p>Thus,Implementation of  Minimax Search Algorithm for a Simple TIC-TAC-TOE game wasa done successfully.</p>
+
+
+
